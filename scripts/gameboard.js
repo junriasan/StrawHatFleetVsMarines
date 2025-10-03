@@ -56,6 +56,20 @@ export class GameBoard {
     // we need to place all of the ship on the shipconfig
     // for every ships on the ship config
   }
+  placeMissingShipRandomly(missingShipObject) {
+    for (const ship of missingShipObject) {
+      let placed = false;
+
+      while (!placed) {
+        const randomX = Math.floor(Math.random() * 10);
+        const randomY = Math.floor(Math.random() * 10);
+        const randomAxis = Math.random() >= 0.5 ? "X" : "Y";
+
+        placed = this.placeShip(ship.name, randomAxis, [randomY, randomX]);
+      }
+    }
+  }
+
   placeShipSpecific() {
     for (const ship of shipsConfig) {
       const x = parseInt(document.querySelector("#ship-input-X").value, 10);

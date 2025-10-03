@@ -7,7 +7,7 @@ let playerNames = {
 
 export function renderBoard(gameBoard, playerBoard) {
   const boardContainer = document.getElementById(playerBoard);
-  console.log;
+
   // console.log(boardContainer);
   boardContainer.innerHTML = ""; // Clear previous board
 
@@ -21,10 +21,10 @@ export function renderBoard(gameBoard, playerBoard) {
       if (value === 0) {
         classValue = "empty";
       } else if (value.state === "idle") {
-        // if (!boardContainer.classList.contains("gameboard--player2")) {
-        //   classValue = "ship";
-        // }
-        classValue = "ship";
+        if (!boardContainer.classList.contains("gameboard--player2")) {
+          classValue = "ship";
+        }
+       
       } else if (value.state === "hit") {
         classValue = "hit";
       } else if (value === "miss") {

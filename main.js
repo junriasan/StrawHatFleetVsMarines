@@ -34,6 +34,9 @@ document.querySelector(".player-name__form").addEventListener("submit", (e) => {
 });
 
 document.querySelector("#btn-confirm").addEventListener("click", () => {
+  console.log("confirm");
+  console.log(shipPlace);
+  
   showPhase(gameState, "gameplay");
 
   game = new GameManager();
